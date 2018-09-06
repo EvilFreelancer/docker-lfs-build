@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  lfs:
+    restart: unless-stopped
+    build:
+      context: .
+    volumes:
+      - ./tools:/lfs/tools
+      - ./sources:/lfs/sources
+      - ./book:/lfs/book
+      - ./image:/lfs/image
+      - ./lfs:/lfs
