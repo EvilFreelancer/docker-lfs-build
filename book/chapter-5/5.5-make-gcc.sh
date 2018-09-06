@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 echo "Building gcc.."
-echo "Approximate build time: 8.9 SBU"
+echo "Approximate build time: 14.3 SBU"
 echo "Required disk space: 2.2 GB"
+
+cd /sources
 
 # 5.5. Pass 1 GCC package contains the GNU compiler collection,
 # which includes the C and C++ compilers
@@ -21,11 +23,7 @@ tar -xf gcc-*.tar.xz -C /tmp/ \
       echo -e "#undef STANDARD_STARTFILE_PREFIX_1 \n#undef STANDARD_STARTFILE_PREFIX_2 \n#define STANDARD_STARTFILE_PREFIX_1 \"/tools/lib/\" \n#define STANDARD_STARTFILE_PREFIX_2 \"\"" >> $file; \
       touch $file.orig; \
     done \
-  && case $(uname -m) in \
-     x86_64) \
-       sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64 \
-       ;; \
-    esac \
+  && sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64 \
   && mkdir -v build \
   && cd build \
   && ../configure                                   \

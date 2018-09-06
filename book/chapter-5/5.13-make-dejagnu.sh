@@ -4,6 +4,8 @@ echo "Building DejaGNU.."
 echo "Approximate build time: less than 0.1 SBU"
 echo "Required disk space: 3.2 MB"
 
+cd /sources
+
 # 5.13. DejaGNU package contains a framework for testing other programs
 tar -xf dejagnu-*.tar.gz -C /tmp/ \
   && mv /tmp/dejagnu-* /tmp/dejagnu \

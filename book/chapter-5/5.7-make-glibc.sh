@@ -4,6 +4,8 @@ echo "Building glibc.."
 echo "Approximate build time: 4.3 SBU"
 echo "Required disk space: 823 MB"
 
+cd /sources
+
 # 5.7. Glibc package contains the main C library. This library provides
 # the basic routines for allocating memory, searching directories, opening
 # and closing files, reading and writing files, string handling, pattern

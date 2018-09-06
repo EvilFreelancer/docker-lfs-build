@@ -92,6 +92,7 @@ RUN chown -v lfs $LFS/tools  \
  && chown -v lfs $LFS/sources
 
 # avoid sudo password
+RUN echo 'Defaults secure_path="/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin"' >> /etc/sudoers
 RUN echo "lfs ALL = NOPASSWD : ALL" >> /etc/sudoers
 RUN echo 'Defaults env_keep += "LFS LC_ALL LFS_TGT PATH MAKEFLAGS FETCH_TOOLCHAIN_MODE LFS_TEST LFS_DOCS JOB_COUNT LOOP IMAGE_SIZE INITRD_TREE IMAGE"' >> /etc/sudoers
 

@@ -2,7 +2,9 @@
 set -e
 echo "Building bzip2.."
 echo "Approximate build time: less than 0.1 SBU"
-echo "Required disk space: 5.2 MB"
+echo "Required disk space: 5.5 MB"
+
+cd /sources
 
 # 5.18. Bzip2 package contains programs for compressing and decompressing files.
 # Compressing text files with bzip2 yields a much better compression percentage

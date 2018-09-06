@@ -2,7 +2,9 @@
 set -e
 echo "Building gcc.."
 echo "Approximate build time: 11 SBU"
-echo "Required disk space: 2.6 GB"
+echo "Required disk space: 3.4 GB"
+
+cd /sources
 
 # 5.10. Pass 2 GCC package contains the GNU compiler collection,
 # which includes the C and C++ compilers

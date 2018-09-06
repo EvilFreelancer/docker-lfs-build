@@ -4,6 +4,8 @@ echo "Building texinfo.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 100 MB"
 
+cd /sources
+
 # 5.33. Texinfo package contains programs for reading, writing, and converting info pages
 tar -xf texinfo-*.tar.xz -C /tmp/ \
   && mv /tmp/texinfo-* /tmp/texinfo \

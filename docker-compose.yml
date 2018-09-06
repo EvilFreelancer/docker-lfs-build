@@ -3,11 +3,10 @@ version: '2'
 services:
   lfs:
     restart: unless-stopped
-    build:
-      context: .
+    image: evilfreelancer/docker-lfs-build
     volumes:
-      - ./tools:/lfs/tools
-      - ./sources:/lfs/sources
       - ./book:/lfs/book
       - ./image:/lfs/image
-      - ./lfs:/lfs
+      - ./sources:/lfs/sources
+      - ./tools:/lfs/tools
+    entrypoint: ["sleep", "inf"]

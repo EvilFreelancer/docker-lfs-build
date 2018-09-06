@@ -2,7 +2,9 @@
 set -e
 echo "Building file.."
 echo "Approximate build time: 0.1 SBU"
-echo "Required disk space: 16 MB"
+echo "Required disk space: 18 MB"
+
+cd /sources
 
 # 5.21. File package contains a utility for determining the type of
 # a given file or files
