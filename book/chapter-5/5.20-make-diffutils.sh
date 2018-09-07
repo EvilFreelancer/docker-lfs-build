@@ -4,11 +4,9 @@ echo "Building diffutils.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 23 MB"
 
-cd /sources
-
 # 5.20. Diffutils package contains programs that show the differences
 # between files or directories
-tar -xf diffutils-*.tar.xz -C /tmp/ \
+tar -xf /sources/diffutils-*.tar.xz -C /tmp/ \
   && mv /tmp/diffutils-* /tmp/diffutils \
   && pushd /tmp/diffutils \
   && ./configure --prefix=/tools \

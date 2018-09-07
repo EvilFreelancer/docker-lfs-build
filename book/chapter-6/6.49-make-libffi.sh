@@ -11,14 +11,16 @@ echo "Required disk space: 7.6 MB"
 tar -xf /sources/libffi-*.tar.xz -C /tmp/ \
   && mv /tmp/libffi-* /tmp/libffi \
   && pushd /tmp/libffi
+
 # Modify the Makefile to install headers into the standard /usr/include directory instead of /usr/lib/libffi-3.2.1/include.
 sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
     -i include/Makefile.in
 sed -e '/^includedir/ s/=.*$/=@includedir@/' \
     -e 's/^Cflags: -I${includedir}/Cflags:/' \
     -i libffi.pc.in
+
 # prepare for compilation
-./configure --prefix=/usr --disable-static
+./configure --prefix=/usr --disable-static --with-gcc-arch=native
 # compile, test and install
 make
 # run tests

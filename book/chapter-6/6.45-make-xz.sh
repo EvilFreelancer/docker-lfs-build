@@ -2,7 +2,7 @@
 set -e
 echo "Building Xz.."
 echo "Approximate build time: 0.2 SBU"
-echo "Required disk space: 15 MB"
+echo "Required disk space: 16 MB"
 
 # 6.45. Xz package contains programs for compressing and decompressing files.
 # It provides capabilities for the lzma and the newer xz compression formats
@@ -10,9 +10,9 @@ tar -xf /sources/xz-*.tar.xz -C /tmp/ \
   && mv /tmp/xz-* /tmp/xz \
   && pushd /tmp/xz
 
-./configure --prefix=/usr      \
-    --disable-static           \
-    --docdir=/usr/share/doc/xz-5.2.3
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/xz-5.2.4
 make
 if [ $LFS_TEST -eq 1 ]; then make check; fi
 make install

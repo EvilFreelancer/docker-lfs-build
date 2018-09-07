@@ -2,7 +2,7 @@
 set -e
 echo "Building diffutils.."
 echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 31 MB"
+echo "Required disk space: 33 MB"
 
 # 6.58. The Diffutils package contains programs that show the differences
 # between files or directories.

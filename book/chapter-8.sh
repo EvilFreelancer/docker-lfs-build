@@ -11,4 +11,4 @@ chroot "$LFS" /usr/bin/env -i                   \
   LFS_TEST="$LFS_TEST" LFS_DOCS="$LFS_DOCS"     \
   JOB_COUNT="$JOB_COUNT"                        \
   /bin/bash --login                             \
-  -c "/book/chapter-8-chroot.sh"
+  -c "sh /book/chapter-8-chroot.sh"

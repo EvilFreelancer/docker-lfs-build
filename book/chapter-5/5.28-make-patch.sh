@@ -4,11 +4,9 @@ echo "Building patch.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 12 MB"
 
-cd /sources
-
 # 5.29. Patch package contains a program for modifying or creating files by
 # applying a “patch” file typically created by the diff program
-tar -xf patch-*.tar.xz -C /tmp/ \
+tar -xf /sources/patch-*.tar.xz -C /tmp/ \
   && mv /tmp/patch-* /tmp/patch \
   && pushd /tmp/patch \
   && ./configure --prefix=/tools \

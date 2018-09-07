@@ -20,7 +20,7 @@ echo "NOTE: skipped. Check 8.4 chapter of LFS book for details"
 #insmod ext2
 #set root=(hd0,2)
 #
-#menuentry "GNU/Linux, Linux 4.15.3-lfs-8.2" {
-#        linux   /boot/vmlinuz-4.15.3-lfs-8.2 root=/dev/sda2 ro
+#menuentry "GNU/Linux, Linux 4.18.5-lfs-8.3" {
+#        linux   /boot/vmlinuz-4.18.5-lfs-8.3 root=/dev/sda2 ro
 #}
 #EOF

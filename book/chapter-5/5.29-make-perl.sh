@@ -4,10 +4,8 @@ echo "Building perl.."
 echo "Approximate build time: 1.5 SBU"
 echo "Required disk space: 275 MB"
 
-cd /sources
-
 # 5.30. Perl package contains the Practical Extraction and Report Language
-tar -xf perl-5*.tar.xz -C /tmp/ \
+tar -xf /sources/perl-5*.tar.xz -C /tmp/ \
   && mv /tmp/perl-* /tmp/perl \
   && pushd /tmp/perl \
   && sh Configure -des -Dprefix=/tools -Dlibs=-lm -Uloclibpth -Ulocincpth \

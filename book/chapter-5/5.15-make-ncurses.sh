@@ -4,11 +4,9 @@ echo "Building Ncurses.."
 echo "Approximate build time:  0.6 SBU"
 echo "Required disk space: 41 MB"
 
-cd /sources
-
 # 5.15. Ncurses package contains libraries for terminal-independent
 # handling of character screens
-tar -xf ncurses-*.tar.gz -C /tmp/ \
+tar -xf /sources/ncurses-*.tar.gz -C /tmp/ \
   && mv /tmp/ncurses-* /tmp/ncurses \
   && pushd /tmp/ncurses \
   && sed -i s/mawk// configure \

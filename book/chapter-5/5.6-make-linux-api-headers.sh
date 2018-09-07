@@ -4,10 +4,8 @@ echo "Building Linux API Headers.."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 910 MB"
 
-cd /sources
-
 # 5.6.  Linux API Headers expose the kernel's API for use by Glibc
-tar -xf linux-*.tar.xz -C /tmp/ \
+tar -xf /sources/linux-*.tar.xz -C /tmp/ \
   && mv /tmp/linux-* /tmp/linux \
   && pushd /tmp/linux \
   && make mrproper \

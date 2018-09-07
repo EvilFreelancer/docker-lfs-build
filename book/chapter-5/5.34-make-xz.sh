@@ -4,13 +4,11 @@ echo "Building Xz.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 18 MB"
 
-cd /sources
-
 # 5.35. Xz package contains programs for compressing and decompressing files.
 # It provides capabilities for the lzma and the newer xz compression formats.
 # Compressing text files with xz yields a better compression percentage than
 # with the traditional gzip or bzip2 commands
-tar -xf xz-*.tar.xz -C /tmp/ \
+tar -xf /sources/xz-*.tar.xz -C /tmp/ \
   && mv /tmp/xz-* /tmp/xz \
   && pushd /tmp/xz \
   && ./configure --prefix=/tools \

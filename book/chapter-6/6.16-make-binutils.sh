@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 echo "Building binutils.."
-echo "Approximate build time: 5.8 SBU"
-echo "Required disk space: 4.2 Gb"
+echo "Approximate build time: 6.6 SBU"
+echo "Required disk space: 4.9 Gb"
 
 # 6.16. Binutils package contains a linker, an assembler, and other tools
 # for handling object files

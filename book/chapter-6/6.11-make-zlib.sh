@@ -2,7 +2,7 @@
 set -e
 echo "Building zlib.."
 echo "Approximate build time: less than 0.1 SBU"
-echo "Required disk space: 4.5 MB"
+echo "Required disk space: 4.4 MB"
 
 # 6.11. Zlib package contains compression and decompression
 # routines used by some programs

@@ -2,7 +2,7 @@
 set -e
 echo "Building Flex.."
 echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 33 MB"
+echo "Required disk space: 35 MB"
 
 # 6.32. Flex package contains a utility for generating programs
 # that recognize patterns in text

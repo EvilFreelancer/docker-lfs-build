@@ -13,6 +13,7 @@ tar -xf /sources/check-*.tar.xz -C /tmp/ \
 make
 if [ $LFS_TEST -eq 1 ]; then make check; fi
 make install
+sed -i '1 s/tools/usr/' /usr/bin/checkmk
 
 # cleanup
 popd \

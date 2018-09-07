@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 echo "Building Sed.."
-echo "Approximate build time: 0.3 SBU"
-echo "Required disk space: 26 MB"
+echo "Approximate build time: 0.5 SBU"
+echo "Required disk space: 30 MB"
 
 # 6.27. Sed package contains a stream editor
 tar -xf /sources/sed-*.tar.xz -C /tmp/ \
@@ -26,8 +26,8 @@ if [ $LFS_TEST -eq 1 ]; then make check; fi
 # Install the package and its documentation:
 make install
 if [ $LFS_DOCS -eq 1 ]; then
-  install -d -m755           /usr/share/doc/sed-4.4
-  install -m644 doc/sed.html /usr/share/doc/sed-4.4
+    install -d -m755           /usr/share/doc/sed-4.5
+    install -m644 doc/sed.html /usr/share/doc/sed-4.5
 fi
 
 # Cleanup

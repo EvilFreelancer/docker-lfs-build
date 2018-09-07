@@ -11,13 +11,13 @@ tar -xf /sources/ncurses-*.tar.gz -C /tmp/ \
   && pushd /tmp/ncurses
 
 # Prepare Ncurses for compilation:
-./configure --prefix=/usr   \
-    --mandir=/usr/share/man \
-    --with-shared           \
-    --without-debug         \
-    --without-normal        \
-    --enable-pc-files       \
-    --enable-widec
+./configure --prefix=/usr           \
+            --mandir=/usr/share/man \
+            --with-shared           \
+            --without-debug         \
+            --without-normal        \
+            --enable-pc-files       \
+            --enable-widec
 
 # Compile the package:
 make
@@ -38,9 +38,9 @@ ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so
 # into linking with wide-character libraries by means of
 # symlinks and linker scripts:
 for lib in ncurses form panel menu ; do
-  rm -vf                      /usr/lib/lib${lib}.so
-  echo "INPUT(-l${lib}w)" >   /usr/lib/lib${lib}.so
-  ln -sfv ${lib}w.pc          /usr/lib/pkgconfig/${lib}.pc
+    rm -vf                    /usr/lib/lib${lib}.so
+    echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
+    ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done
 
 # Finally, make sure that old applications that look for -lcurses
@@ -51,8 +51,8 @@ ln -sfv libncurses.so      /usr/lib/libcurses.so
 
 # If desired, install the Ncurses documentation:
 if [ $LFS_DOCS -eq 1 ]; then
-    mkdir -v /usr/share/doc/ncurses-6.0
-    cp -v -R doc/* /usr/share/doc/ncurses-6.0
+    mkdir -v       /usr/share/doc/ncurses-6.1
+    cp -v -R doc/* /usr/share/doc/ncurses-6.1
 fi
 
 # cleanup

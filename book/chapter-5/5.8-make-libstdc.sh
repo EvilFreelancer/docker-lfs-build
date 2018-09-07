@@ -4,11 +4,9 @@ echo "Building libstdc.."
 echo "Approximate build time: 0.5 SBU"
 echo "Required disk space: 803 MB"
 
-cd /sources
-
 # 5.8. Libstdc++ is the standard C++ library. It is needed for
 # the correct operation of the g++ compile
-tar -xf gcc-*.tar.xz -C /tmp/ \
+tar -xf /sources/gcc-*.tar.xz -C /tmp/ \
   && mv /tmp/gcc-* /tmp/gcc \
   && pushd /tmp/gcc \
   && mkdir -v build \

@@ -2,7 +2,7 @@
 set -e
 echo "Building Psmisc.."
 echo "Approximate build time: less than 0.1 SBU"
-echo "Required disk space: 4.2 MB"
+echo "Required disk space: 4.3 MB"
 
 # 6.29. Psmisc package contains programs for displaying information
 # about running processes

@@ -4,10 +4,8 @@ echo "Building Tcl-core.."
 echo "Approximate build time: 0.9 SBU"
 echo "Required disk space: 66 MB"
 
-cd /sources
-
 # 5.11. The Tcl package contains the Tool Command Language.
-tar -xf tcl*-src.tar.gz -C /tmp/ \
+tar -xf /sources/tcl*-src.tar.gz -C /tmp/ \
   && mv /tmp/tcl* /tmp/tcl \
   && pushd /tmp/tcl \
   && cd unix \

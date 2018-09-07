@@ -1,11 +1,7 @@
-#!/bin/bash -x
+#!/bin/bash
 
 echo "> Continue with chroot environment..."
 
-# SKIP remove the "I have no name!" promp
-# exec /book/chapter-6/bin/bash --login +h
-
-# build toolchain
 sh /book/chapter-6/6.5-create-directories.sh
 sh /book/chapter-6/6.6-create-essentials.sh
 sh /book/chapter-6/6.7-make-linux-api-headers.sh
@@ -21,25 +17,21 @@ sh /book/chapter-6/6.16-make-binutils.sh
 sh /book/chapter-6/6.17-make-gmp.sh
 sh /book/chapter-6/6.18-make-mpfr.sh
 sh /book/chapter-6/6.19-make-mpc.sh
-sh /book/chapter-6/6.20-make-gcc.sh
-sh /book/chapter-6/6.21-make-bzip2.sh
-sh /book/chapter-6/6.22-make-pkg-config.sh
-sh /book/chapter-6/6.23-make-ncurses.sh
-sh /book/chapter-6/6.24-make-attr.sh
-sh /book/chapter-6/6.25-make-acl.sh
-sh /book/chapter-6/6.26-make-libcap.sh
-sh /book/chapter-6/6.27-make-sed.sh
-sh /book/chapter-6/6.28-make-shadow.sh
+sh /book/chapter-6/6.20-make-shadow.sh
+sh /book/chapter-6/6.21-make-gcc.sh
+sh /book/chapter-6/6.22-make-bzip2.sh
+sh /book/chapter-6/6.23-make-pkg-config.sh
+sh /book/chapter-6/6.24-make-ncurses.sh
+sh /book/chapter-6/6.25-make-attr.sh
+sh /book/chapter-6/6.26-make-acl.sh
+sh /book/chapter-6/6.27-make-libcap.sh
+sh /book/chapter-6/6.28-make-sed.sh
 sh /book/chapter-6/6.29-make-psmisc.sh
 sh /book/chapter-6/6.30-make-iana-etc.sh
 sh /book/chapter-6/6.31-make-bison.sh
 sh /book/chapter-6/6.32-make-flex.sh
 sh /book/chapter-6/6.33-make-grep.sh
 sh /book/chapter-6/6.34-make-bash.sh
-
-# SKIP switching to built bash
-#exec /bin/bash --login +h
-
 sh /book/chapter-6/6.35-make-libtool.sh
 sh /book/chapter-6/6.36-make-gdbm.sh
 sh /book/chapter-6/6.37-make-gperf.sh

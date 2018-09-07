@@ -4,10 +4,8 @@ echo "Building gzip.."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 10 MB"
 
-cd /sources
-
 # 5.26. Gzip package contains programs for compressing and decompressing files
-tar -xf gzip-*.tar.xz -C /tmp/ \
+tar -xf /sources/gzip-*.tar.xz -C /tmp/ \
   && mv /tmp/gzip-* /tmp/gzip \
   && pushd /tmp/gzip \
   && sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c \

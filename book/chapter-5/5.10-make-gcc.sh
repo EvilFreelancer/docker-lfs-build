@@ -4,11 +4,9 @@ echo "Building gcc.."
 echo "Approximate build time: 11 SBU"
 echo "Required disk space: 3.4 GB"
 
-cd /sources
-
 # 5.10. Pass 2 GCC package contains the GNU compiler collection,
 # which includes the C and C++ compilers
-tar -xf gcc-*.tar.xz -C /tmp/ \
+tar -xf /sources/gcc-*.tar.xz -C /tmp/ \
   && mv /tmp/gcc-* /tmp/gcc \
   && pushd /tmp/gcc \
   && tar -xf $LFS/sources/mpfr-*.tar.xz \
@@ -52,6 +50,7 @@ tar -xf gcc-*.tar.xz -C /tmp/ \
   && rm -rf /tmp/gcc
 
 # perform a sanity check
+cd /sources
 echo 'int main(){}' > dummy.c \
   && cc dummy.c \
   && readelf -l a.out | grep ': /tools' \

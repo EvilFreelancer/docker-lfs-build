@@ -4,11 +4,9 @@ echo "Building expect.."
 echo "Approximate build time: 0.1 SBU"
 echo "Required disk space: 3.9 MB"
 
-cd /sources
-
 # 5.12. Expect package contains a program for carrying out scripted
 # dialogues with other interactive programs
-tar -xf expect*.tar.gz -C /tmp/ \
+tar -xf /sources/expect*.tar.gz -C /tmp/ \
   && mv /tmp/expect* /tmp/expect \
   && pushd /tmp/expect \
   && cp -v configure{,.orig} \

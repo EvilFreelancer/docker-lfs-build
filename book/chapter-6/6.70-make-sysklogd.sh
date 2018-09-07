@@ -2,7 +2,7 @@
 set -e
 echo "Building sysklogd.."
 echo "Approximate build time: less than 0.1 SBU"
-echo "Required disk space: 0.7 MB"
+echo "Required disk space: 0.6 MB"
 
 # 6.70. The Sysklogd package contains programs for logging system
 # messages, such as those given by the kernel when unusual things
@@ -10,16 +10,19 @@ echo "Required disk space: 0.7 MB"
 tar -xf /sources/sysklogd-*.tar.gz -C /tmp/ \
   && mv /tmp/sysklogd-* /tmp/sysklogd \
   && pushd /tmp/sysklogd
+
 # fix bugs
 sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 sed -i 's/union wait/int/' syslogd.c
+
 # compile
 make
+
 # install
 make BINDIR=/sbin install
 
 # 6.70.2. Configuring Sysklogd
-cat > /etc/syslog.conf <<"EOF"
+cat > /etc/syslog.conf << "EOF"
 # Begin /etc/syslog.conf
 
 auth,authpriv.* -/var/log/auth.log

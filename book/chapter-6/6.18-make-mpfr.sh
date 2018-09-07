@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo "Building MPFR.."
-echo "Approximate build time: 1.0 SBU"
+echo "Approximate build time: 1.1 SBU"
 echo "Required disk space: 36 MB"
 
 # 6.18. MPFR package contains functions for multiple precision math

@@ -4,10 +4,8 @@ echo "Building bison.."
 echo "Approximate build time:  0.3 SBU"
 echo "Required disk space: 35 MB"
 
-cd /sources
-
 # 5.17. Bison package contains a parser generator
-tar -xf bison-*.tar.xz -C /tmp/ \
+tar -xf /sources/bison-*.tar.xz -C /tmp/ \
   && mv /tmp/bison-* /tmp/bison \
   && pushd /tmp/bison \
   && ./configure --prefix=/tools \

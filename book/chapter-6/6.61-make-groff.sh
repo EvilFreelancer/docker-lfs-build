@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 echo "Building groff.."
-echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 83 MB"
+echo "Approximate build time: 0.5 SBU"
+echo "Required disk space: 90 MB"
 
 # 6.61. Groff package contains programs for processing and formatting text
 tar -xf /sources/groff-*.tar.gz -C /tmp/ \

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo "Building libtool.."
-echo "Approximate build time: 1.8 SBU"
+echo "Approximate build time: 1.9 SBU"
 echo "Required disk space: 43 MB"
 
 # 6.35. Libtool package contains the GNU generic library support script. It wraps

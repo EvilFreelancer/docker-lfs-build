@@ -2,7 +2,7 @@
 set -e
 echo "Building MPC.."
 echo "Approximate build time: 0.3 SBU"
-echo "Required disk space: 21 MB"
+echo "Required disk space: 22 MB"
 
 # 6.19. The MPC package contains a library for the arithmetic of
 # complex numbers with arbitrarily high precision and correct

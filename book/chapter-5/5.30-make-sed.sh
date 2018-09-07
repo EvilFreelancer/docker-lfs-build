@@ -4,10 +4,8 @@ echo "Building sed.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 17 MB"
 
-cd /sources
-
 # 5.31. Sed package contains a stream editor
-tar -xf sed-*.tar.xz -C /tmp/ \
+tar -xf /sources/sed-*.tar.xz -C /tmp/ \
   && mv /tmp/sed-* /tmp/sed \
   && pushd /tmp/sed \
   && ./configure --prefix=/tools \

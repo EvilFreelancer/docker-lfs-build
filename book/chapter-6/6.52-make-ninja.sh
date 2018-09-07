@@ -2,7 +2,7 @@
 set -e
 echo "Building Ninja.."
 echo "Approximate build time: 0.2 SBU"
-echo "Required disk space: 40 MB"
+echo "Required disk space: 83 MB"
 
 # 6.51. Ninja is a small build system with a focus on speed.
 tar -xf /sources/ninja-*.tar.gz -C /tmp/ \

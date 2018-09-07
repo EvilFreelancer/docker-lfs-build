@@ -2,12 +2,12 @@
 set -e
 echo "Cleanup.."
 
-# unmount VFS
+# Then unmount the virtual file systems:
 umount -v $LFS/dev/pts
 umount -v $LFS/dev
 umount -v $LFS/run
 umount -v $LFS/proc
 umount -v $LFS/sys
 
-# unmount LFS
+# Unmount the LFS file system itself:
 umount -v $LFS

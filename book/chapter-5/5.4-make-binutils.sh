@@ -4,11 +4,9 @@ echo "Building binutils.."
 echo "Approximate build time: 1 SBU"
 echo "Required disk space: 547 MB"
 
-cd /sources
-
 # 5.4 Binutils package contains a linker, an assembler, and other
 #  tools for handling object files
-tar -xf binutils-*.tar.xz -C /tmp/ \
+tar -xf /sources/binutils-*.tar.xz -C /tmp/ \
   && mv /tmp/binutils-* /tmp/binutils \
   && pushd /tmp/binutils \
   && mkdir -v build \

@@ -2,7 +2,7 @@
 set -e
 echo "Building gawk.."
 echo "Approximate build time: 0.4 SBU"
-echo "Required disk space: 42 MB"
+echo "Required disk space: 44 MB"
 
 # 6.59. Gawk package contains programs for manipulating text files
 tar -xf /sources/gawk-*.tar.xz -C /tmp/ \
@@ -19,8 +19,8 @@ make install
 
 # install docs
 if [ $LFS_DOCS -eq 1 ]; then
-  mkdir -v /usr/share/doc/gawk-4.2.0
-  cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.2.0
+    mkdir -v /usr/share/doc/gawk-4.2.1
+    cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.2.1
 fi
 
 # cleanup

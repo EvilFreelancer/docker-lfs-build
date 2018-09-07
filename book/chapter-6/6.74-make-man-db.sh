@@ -10,7 +10,7 @@ tar -xf /sources/man-db-*.tar.xz -C /tmp/ \
   && pushd /tmp/man-db
 
 ./configure --prefix=/usr                        \
-            --docdir=/usr/share/doc/man-db-2.8.1 \
+            --docdir=/usr/share/doc/man-db-2.8.4 \
             --sysconfdir=/etc                    \
             --disable-setuid                     \
             --enable-cache-owner=bin             \
@@ -19,9 +19,15 @@ tar -xf /sources/man-db-*.tar.xz -C /tmp/ \
             --with-grap=/usr/bin/grap            \
             --with-systemdtmpfilesdir=
 
+# Compile the package:
 make
+
+# To test the results, issue:
 if [ $LFS_TEST -eq 1 ]; then make check; fi
+
+# Install the package:
 make install
+
 # cleanup
 popd \
   && rm -rf /tmp/man-db || true

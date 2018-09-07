@@ -4,10 +4,8 @@ echo "Building bash.."
 echo "Approximate build time:  0.4 SBU"
 echo "Required disk space: 63 MB"
 
-cd /sources
-
 # 5.16. Bash package contains the Bourne-Again SHell
-tar -xf bash-*.tar.gz -C /tmp/ \
+tar -xf /sources/bash-*.tar.gz -C /tmp/ \
   && mv /tmp/bash-* /tmp/bash \
   && pushd /tmp/bash \
   && ./configure --prefix=/tools --without-bash-malloc \

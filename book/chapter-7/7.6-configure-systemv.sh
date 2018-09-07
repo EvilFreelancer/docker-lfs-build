@@ -3,7 +3,9 @@ set -e
 echo "Setup system V bootscript configuration.."
 
 # 7.6.2 configure sysvinit
-cat > /etc/inittab <<"EOF"
+cat > /etc/inittab << "EOF"
+# Begin /etc/inittab
+
 id:3:initdefault:
 
 si::sysinit:/etc/rc.d/init.d/rc S
@@ -26,23 +28,31 @@ su:S016:once:/sbin/sulogin
 4:2345:respawn:/sbin/agetty tty4 9600
 5:2345:respawn:/sbin/agetty tty5 9600
 6:2345:respawn:/sbin/agetty tty6 9600
+
+# End /etc/inittab
 EOF
 
 # 7.6.4 configure system clock
-cat > /etc/sysconfig/clock <<"EOF"
+cat > /etc/sysconfig/clock << "EOF"
+# Begin /etc/sysconfig/clock
+
 UTC=1
+
 # Set this to any options you might need to give to hwclock,
 # such as machine hardware clock type for Alphas.
 CLOCKPARAMS=
+
+# End /etc/sysconfig/clock
 EOF
 
 # 7.6.5 configure linux console
-echo "Skip keyboard map configuraion"
+echo "Skip keyboard map configuration"
 
 # 7.6.8 configure rc.site
 cat > /etc/sysconfig/rc.site <<"EOF"
 # rc.site
 # Optional parameters for boot scripts.
+
 # Distro Information
 # These values, if specified here, override the defaults
 #DISTRO="Linux From Scratch" # The distro name
@@ -53,24 +63,24 @@ cat > /etc/sysconfig/rc.site <<"EOF"
 
 # Please consult `man console_codes` for more information
 # under the "ECMA-48 Set Graphics Rendition" section
-
+#
 # Warning: when switching from a 8bit to a 9bit font,
 # the linux console will reinterpret the bold (1;) to
-# the top 256 glyphs of the 9bit font. This does
+# the top 256 glyphs of the 9bit font.  This does
 # not affect framebuffer consoles
 
 # These values, if specified here, override the defaults
 #BRACKET="\\033[1;34m" # Blue
 #FAILURE="\\033[1;31m" # Red
-#INFO="\\033[1;36m"   # Cyan
-#NORMAL="\\033[0;39m" # Grey
+#INFO="\\033[1;36m"    # Cyan
+#NORMAL="\\033[0;39m"  # Grey
 #SUCCESS="\\033[1;32m" # Green
 #WARNING="\\033[1;33m" # Yellow
 
 # Use a colored prefix
 # These values, if specified here, override the defaults
-#BMPREFIX="    "
-#SUCCESS_PREFIX="${SUCCESS} * ${NORMAL}"
+#BMPREFIX="     "
+#SUCCESS_PREFIX="${SUCCESS}  *  ${NORMAL}"
 #FAILURE_PREFIX="${FAILURE}*****${NORMAL}"
 #WARNING_PREFIX="${WARNING} *** ${NORMAL}"
 
@@ -81,11 +91,15 @@ cat > /etc/sysconfig/rc.site <<"EOF"
 
 # Interactive startup
 #IPROMPT="yes" # Whether to display the interactive boot prompt
-#itime="3"     #The amount of time (in seconds) to display the prompt
+#itime="3"    # The amount of time (in seconds) to display the prompt
 
 # The total length of the distro welcome string, without escape codes
 #wlen=$(echo "Welcome to ${DISTRO}" | wc -c )
 #welcome_message="Welcome to ${INFO}${DISTRO}${NORMAL}"
+
+# The total length of the interactive string, without escape codes
+#ilen=$(echo "Press 'I' to enter interactive startup" | wc -c )
+#i_message="Press '${FAILURE}I${NORMAL}' to enter interactive startup"
 
 # Set scripts to skip the file system check on reboot
 #FASTBOOT=yes

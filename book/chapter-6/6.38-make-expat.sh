@@ -14,7 +14,9 @@ tar -xf /sources/expat-*.tar.bz2 -C /tmp/ \
 sed -i 's|usr/bin/env |bin/|' run.sh.in
 
 # Prepare Expat for compilation:
-./configure --prefix=/usr --disable-static
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/expat-2.2.6
 
 # Compile the package:
 make
@@ -27,8 +29,7 @@ make install
 
 # If desired, install the documentation:
 if [ $LFS_DOCS -eq 1 ]; then
-  install -v -dm755 /usr/share/doc/expat-2.2.5
-  install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.2.5
+    install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.2.6
 fi
 
 # Cleanup

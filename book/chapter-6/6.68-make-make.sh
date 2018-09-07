@@ -2,7 +2,7 @@
 set -e
 echo "Building make.."
 echo "Approximate build time: 0.6 SBU"
-echo "Required disk space: 12 MB"
+echo "Required disk space: 13 MB"
 
 # 6.68. Make package contains a program for compiling packages
 tar -xf /sources/make-*.tar.bz2 -C /tmp/ \

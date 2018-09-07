@@ -2,7 +2,7 @@
 set -e
 echo "Building Shadow.."
 echo "Approximate build time: 0.2 SBU"
-echo "Required disk space: 43 MB"
+echo "Required disk space: 46 MB"
 
 # 6.28. The Shadow package contains programs for handling passwords
 # in a secure way.
@@ -41,6 +41,12 @@ make install
 
 # Move a misplaced program to its proper location:
 mv -v /usr/bin/passwd /bin
+
+# To enable shadowed passwords, run the following command:
+pwconv
+
+# To enable shadowed group passwords, run:
+grpconv
 
 # Cleanup
 popd \

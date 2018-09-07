@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 echo "Building bash"
-echo "Approximate build time: 2.0 SBU"
-echo "Required disk space: 56 MB"
+echo "Approximate build time: 2.1 SBU"
+echo "Required disk space: 58 MB"
 
 # 6.34. Bash package contains the Bourne-Again SHell
 tar -xf /sources/bash-*.tar.gz -C /tmp/ \
@@ -10,17 +10,16 @@ tar -xf /sources/bash-*.tar.gz -C /tmp/ \
   && pushd /tmp/bash
 
 # prepare bash
-./configure --prefix=/usr               \
-    --docdir=/usr/share/doc/bash-4.4.18 \
-    --without-bash-malloc               \
-    --with-installed-readline
+./configure --prefix=/usr                       \
+            --docdir=/usr/share/doc/bash-4.4.18 \
+            --without-bash-malloc               \
+            --with-installed-readline
 
 # Compile the package
 make
 
 # Run tests
-if [ $LFS_TEST -eq 1 ]
-    then
+if [ $LFS_TEST -eq 1 ]; then
     # To prepare the tests, ensure that the nobody user can write to the sources tree
     chown -Rv nobody .
     # Now, run the tests as the nobody user:

@@ -2,23 +2,29 @@
 set -e
 echo "Building procps-ng.."
 echo "Approximate build time: 0.1 SBU"
-echo "Required disk space: 15 MB"
+echo "Required disk space: 17 MB"
 
 # 6.54. The Procps-ng package contains programs for monitoring processes.
 tar -xf /sources/procps-ng-*.tar.xz -C /tmp/ \
   && mv /tmp/procps-ng-* /tmp/procps-ng \
   && pushd /tmp/procps-ng
+
 # prepare for compilation
-./configure --prefix=/usr                   \
-  --exec-prefix=                            \
-  --libdir=/usr/lib                         \
-  --docdir=/usr/share/doc/procps-ng-3.3.12  \
-  --disable-static                          \
-  --disable-kill
-# compile, test and install
+./configure --prefix=/usr                            \
+            --exec-prefix=                           \
+            --libdir=/usr/lib                        \
+            --docdir=/usr/share/doc/procps-ng-3.3.15 \
+            --disable-static                         \
+            --disable-kill
+
+# Compile the package:
 make
+
+# The test suite needs some custom modifications for LFS. Remove a test
+# that fails when scripting does not use a tty device and fix two others.
+# To run the test suite, run the following commands:
 sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
-sed -i '/set tty/d'                   testsuite/pkill.test/pkill.exp
+sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
 rm testsuite/pgrep.test/pgrep.exp
 
 # Run tests

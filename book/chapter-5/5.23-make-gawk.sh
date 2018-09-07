@@ -4,10 +4,8 @@ echo "Building gawk.."
 echo "Approximate build time: 0.2 SBU"
 echo "Required disk space: 43 MB"
 
-cd /sources
-
 # 5.23. Gawk package contains programs for manipulating text files
-tar -xf gawk-*.tar.xz -C /tmp/ \
+tar -xf /sources/gawk-*.tar.xz -C /tmp/ \
   && mv /tmp/gawk-* /tmp/gawk \
   && pushd /tmp/gawk \
   && ./configure --prefix=/tools \
