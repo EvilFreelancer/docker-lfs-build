@@ -2,20 +2,24 @@
 set -e
 
 # create essential files and symlinks
-ln -sv /tools/bin/{bash,sh,cat,dd,echo,ln,pwd,rm,stty} /bin
+ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} /bin
 ln -sv /tools/bin/{install,perl} /usr/bin
 ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
 ln -sv /tools/lib/libstdc++.{a,so{,.6}} /usr/lib
 sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
+
+# need for 6.7-make-linux-api-headers.sh
+ln -sv /tools/lib/crt*.o /tools/lib/gcc/x86_64-pc-linux-gnu/8.2.0/
+
 for lib in blkid lzma mount uuid
 do
-  ln -sv /tools/lib/lib$lib.{a,so*} /usr/lib
+  ln -sv /tools/lib/lib$lib.{a,so*} /usr/lib || true
   sed 's/tools/usr/' /tools/lib/lib${lib}.la > /usr/lib/lib${lib}.la
 done
-ln -sv bash /bin/sh
+ln -sv bash /bin/sh || true
 
 # create symlink for list of the mounted file systems
-ln -sv /proc/self/mounts /etc/mtab
+ln -sv /proc/self/mounts /etc/mtab || true
 
 # configure root
 cat > /etc/passwd <<"EOF"
@@ -55,5 +59,5 @@ EOF
 # initialize the log files and give them proper permissions
 touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
-chmod -v 664 /var/log/lastlog
-chmod -v 600 /var/log/btmp
+chmod -v 664  /var/log/lastlog
+chmod -v 600  /var/log/btmp

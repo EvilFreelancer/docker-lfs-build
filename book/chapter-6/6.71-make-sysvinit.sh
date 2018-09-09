@@ -6,7 +6,7 @@ echo "Required disk space: 1.1 MB"
 
 # 6.71. Sysvinit package contains programs for controlling the startup,
 # running, and shutdown of the system
-tar -xf /sources/sysvinit-*.tar.bz2 -C /tmp/ \
+tar -xf /sources/sysvinit-*.tar.xz -C /tmp/ \
   && mv /tmp/sysvinit-* /tmp/sysvinit \
   && pushd /tmp/sysvinit
 

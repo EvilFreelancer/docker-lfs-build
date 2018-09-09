@@ -18,7 +18,8 @@ HELP2MAN=/tools/bin/true \
 make
 if [ $LFS_TEST -eq 1 ]; then make check; fi
 make install
-ln -sv flex /usr/bin/lex
+# Don't stop on error
+ln -sv flex /usr/bin/lex || true
 # cleanup
 popd \
   && rm -rf /tmp/flex

@@ -10,6 +10,8 @@ tar -xf /sources/shadow-*.tar.xz -C /tmp/ \
   && mv /tmp/shadow-* /tmp/shadow \
   && pushd /tmp/shadow
 
+touch /etc/shadown
+
 # Disable the installation of the groups program and its man pages,
 # as Coreutils provides a better version. Also Prevent the installation
 # of manual pages that were already installed by the man pages package:
@@ -42,11 +44,11 @@ make install
 # Move a misplaced program to its proper location:
 mv -v /usr/bin/passwd /bin
 
-# To enable shadowed passwords, run the following command:
-pwconv
-
-# To enable shadowed group passwords, run:
-grpconv
+# Segmentation failure on this stage
+## To enable shadowed passwords, run the following command:
+#pwconv
+## To enable shadowed group passwords, run:
+#grpconv
 
 # Cleanup
 popd \

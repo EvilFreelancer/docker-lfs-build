@@ -9,6 +9,10 @@ tar -xf /sources/gmp-*.tar.xz -C /tmp/ \
   && mv /tmp/gmp-* /tmp/gmp \
   && pushd /tmp/gmp
 
+# For solve bug:
+# libtool:   error: '/usr/lib/../lib/libstdc++.la' is not a valid libtool archive
+rm -v /usr/lib/libstdc++.la
+
 ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \

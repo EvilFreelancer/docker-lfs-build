@@ -9,6 +9,7 @@ echo "Required disk space: 4.1 MB"
 tar -xf /sources/bc-*.tar.gz -C /tmp/ \
   && mv /tmp/bc-* /tmp/bc \
   && pushd /tmp/bc
+
 # First, change an internal script to use sed instead of ed:
 cat > bc/fix-libmath_h << "EOF"
 #! /bin/bash
@@ -21,11 +22,14 @@ sed -e '1   s/^/{"/' \
 sed -e '$ s/$/0}/' \
     -i libmath.h
 EOF
+
 # create temporary symbolic links so the package can find the readline library
 ln -sv /tools/lib/libncursesw.so.6 /usr/lib/libncursesw.so.6
 ln -sfv libncurses.so.6 /usr/lib/libncurses.so
+
 # fix an issue in configure due to missing files in the early stages of LFS
 sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
+
 # build
 ./configure --prefix=/usr           \
             --with-readline         \

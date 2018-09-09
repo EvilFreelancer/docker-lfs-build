@@ -17,6 +17,10 @@ mkdir -v build
 cd build
 
 # Prepare E2fsprogs for compilation:
+# http://lists.linuxfromscratch.org/pipermail/lfs-support/2016-August/050256.html
+LIBS=-L/tools/lib                    \
+CFLAGS=-I/tools/include              \
+PKG_CONFIG_PATH=/tools/lib/pkgconfig \
 ../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \
