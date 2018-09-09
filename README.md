@@ -16,6 +16,14 @@ if you not have it yet.
     docker-compose build
     docker-compose up -d
 
+Then login as LFS user:
+
+    docker-compose exec lfs bash
+
+Start building:
+
+    sudo /book/book.sh
+
 ### Download from Docker Hub
 
     docker pull evilfreelancer/docker-lfs-build
