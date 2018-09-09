@@ -10,7 +10,7 @@ tar -xf /sources/shadow-*.tar.xz -C /tmp/ \
   && mv /tmp/shadow-* /tmp/shadow \
   && pushd /tmp/shadow
 
-touch /etc/shadown
+touch /etc/passwd
 
 # Disable the installation of the groups program and its man pages,
 # as Coreutils provides a better version. Also Prevent the installation

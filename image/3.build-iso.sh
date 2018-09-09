@@ -3,7 +3,6 @@
 # Change folder to root of image
 cd /image
 
-# remove is if exist
 rm -v $IMAGE_ISO
 
 echo "> Building bootable iso.."

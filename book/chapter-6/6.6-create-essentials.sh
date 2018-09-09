@@ -22,15 +22,15 @@ ln -sv bash /bin/sh || true
 ln -sv /proc/self/mounts /etc/mtab || true
 
 # configure root
-cat > /etc/passwd <<"EOF"
-root:x:0:0:root:/root:/bin/bash
+cat > /etc/passwd << "EOF"
+root::0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/var/run/dbus:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
 EOF
 
-cat > /etc/group <<"EOF"
+cat > /etc/group << "EOF"
 root:x:0:
 bin:x:1:daemon
 sys:x:2:
