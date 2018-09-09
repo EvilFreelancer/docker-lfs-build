@@ -24,17 +24,23 @@ ENV LFS_DOCS=0
 ENV JOB_COUNT=1
 
 # loop device
-ENV LOOP=/dev/loop0
+ENV LOOP=/dev/loop2
+
+# mount point of loop device, for creating the iso iamge
+ENV LOOP_DIR=/image/loop
 
 # inital ram disk size in KB
 # must be in sync with CONFIG_BLK_DEV_RAM_SIZE
-ENV IMAGE_SIZE=800000
+ENV IMAGE_SIZE=1000000
+
+# output images
+ENV IMAGE_RAM=/image/lfs.ram
+ENV IMAGE_BZ2=/image/lfs.bz2
+ENV IMAGE_ISO=/image/lfs.iso
+ENV IMAGE_HDD=/image/lfs.hdd
 
 # location of initrd tree
 ENV INITRD_TREE=$LFS
-
-# output image
-ENV IMAGE=isolinux/ramdisk.img
 
 # set bash as default shell
 WORKDIR /bin
