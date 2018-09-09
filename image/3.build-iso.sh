@@ -3,7 +3,7 @@
 # Change folder to root of image
 cd /image
 
-IMAGE_ISO=/image/lfs.iso
+# remove is if exist
 rm -v $IMAGE_ISO
 
 echo "> Building bootable iso.."

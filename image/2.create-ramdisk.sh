@@ -5,14 +5,6 @@ cd /image
 
 echo "> Creating ramdisk..."
 
-export IMAGE_RAM=/image/lfs.ram
-export IMAGE_BZ2=/image/lfs.bz2
-export IMAGE_ISO=/image/lfs.iso
-export IMAGE_HDD=/image/lfs.hdd
-export LOOP=/dev/loop10
-export LOOP_DIR=/image/loop
-export IMAGE_SIZE=1000000
-
 # Create yet another loop device if not exist
 [ -e $LOOP ] || mknod $LOOP b 7 0
 
