@@ -5,3 +5,4 @@
 /image/isolinux/
 /image/loop/
 /image/lfs.*
+/lfs/
