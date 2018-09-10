@@ -3,7 +3,7 @@
 This repository is a collection of scripts created especially to
 automate the build process of Linux From Scratch (LFS).
 
-Current stable version of LFS is 8.2
+Current stable version of LFS is 8.3
 
 ## How to use
 
