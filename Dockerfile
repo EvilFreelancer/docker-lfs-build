@@ -100,12 +100,15 @@ RUN chown -v lfs $LFS/tools  \
 # avoid sudo password
 RUN echo 'Defaults secure_path="/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin"' >> /etc/sudoers
 RUN echo "lfs ALL = NOPASSWD : ALL" >> /etc/sudoers
-RUN echo 'Defaults env_keep += "LFS LC_ALL LFS_TGT PATH MAKEFLAGS FETCH_TOOLCHAIN_MODE LFS_TEST LFS_DOCS JOB_COUNT LOOP IMAGE_SIZE INITRD_TREE IMAGE_RAM IMAGE_BZ2 IMAGE_ISO IMAGE_HDD"' >> /etc/sudoers
+RUN echo 'Defaults env_keep += "LFS LC_ALL LFS_TGT PATH MAKEFLAGS FETCH_TOOLCHAIN_MODE LFS_TEST LFS_DOCS JOB_COUNT LOOP LOOP_DIR IMAGE_SIZE INITRD_TREE IMAGE_RAM IMAGE_BZ2 IMAGE_ISO IMAGE_HDD"' >> /etc/sudoers
 
 # login as lfs user
 USER lfs
 COPY [ ".bash_profile", ".bashrc", "/home/lfs/" ]
 RUN source ~/.bash_profile
+
+# change path to home folder as default
+WORKDIR /home/lfs
 
 # Download all sources
 RUN /book/chapter-3.sh
