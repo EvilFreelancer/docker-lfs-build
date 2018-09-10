@@ -17,4 +17,7 @@ sync
 /book/chapter-7.sh
 /book/chapter-8.sh
 /book/chapter-9.sh
+
+# create dist
+/image/image.sh
 EOF

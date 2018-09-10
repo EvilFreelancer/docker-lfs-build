@@ -31,7 +31,7 @@ Then login to LFS container:
 
 Start building:
 
-    book/book.sh
+    /book/book.sh
 
 Result of building will be in `dist` folder.
 
