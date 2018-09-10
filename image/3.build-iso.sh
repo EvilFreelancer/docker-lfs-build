@@ -7,7 +7,7 @@ rm -v $IMAGE_ISO
 
 echo "> Building bootable iso.."
 
-mv -v lfs.bz2 isolinux/
+cp -v $IMAGE_BZ2 isolinux/
 
 # build iso
 genisoimage -o $IMAGE_ISO                \

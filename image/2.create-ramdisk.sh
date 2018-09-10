@@ -29,7 +29,7 @@ rm -rf $LOOP_DIR/lost+found
 
 # copy LFS system without build artifacts
 pushd $INITRD_TREE
-cp -dpR $(ls -A | grep -Ev "sources|tools|book|image") $LOOP_DIR
+cp -dpR $(ls -A | grep -Ev "sources|tools|book|image|dist") $LOOP_DIR
 popd
 
 # show statistics
@@ -42,4 +42,3 @@ bzip2 -c $IMAGE_RAM > $IMAGE_BZ2
 umount $LOOP_DIR
 losetup -d $LOOP
 rm -rf $LOOP_DIR
-rm -rf $IMAGE_RAM

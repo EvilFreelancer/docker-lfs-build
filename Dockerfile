@@ -34,10 +34,10 @@ ENV LOOP_DIR=/image/loop
 ENV IMAGE_SIZE=1000000
 
 # output images
-ENV IMAGE_RAM=/image/lfs.ram
-ENV IMAGE_BZ2=/image/lfs.bz2
-ENV IMAGE_ISO=/image/lfs.iso
-ENV IMAGE_HDD=/image/lfs.hdd
+ENV IMAGE_RAM=/dist/lfs.ram
+ENV IMAGE_BZ2=/dist/lfs.bz2
+ENV IMAGE_ISO=/dist/lfs.iso
+ENV IMAGE_HDD=/dist/lfs.hdd
 
 # location of initrd tree
 ENV INITRD_TREE=$LFS
@@ -114,4 +114,4 @@ WORKDIR /home/lfs
 RUN /book/chapter-3.sh
 
 # let's the party begin
-ENTRYPOINT [ "/book/book.sh" ]
+ENTRYPOINT ["/book/book.sh"]

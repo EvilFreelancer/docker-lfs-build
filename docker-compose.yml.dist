@@ -11,4 +11,5 @@ services:
       - ./sources:/lfs/sources
       - ./tools:/lfs/tools
       - ./lfs:/lfs
+      - ./dist:/dist
     entrypoint: ["sleep", "inf"]
