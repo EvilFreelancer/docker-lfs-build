@@ -44,6 +44,9 @@ make install
 # Move a misplaced program to its proper location:
 mv -v /usr/bin/passwd /bin
 
+# Set password for root
+printf "root\nroot\n" | /bin/passwd
+
 # Segmentation failure on this stage
 ## To enable shadowed passwords, run the following command:
 #pwconv
