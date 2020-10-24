@@ -1,0 +1,13 @@
+name: Release new version
+on:
+  push:
+    branches: [ master ]
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Release
+        run: |
+          cd $GITHUB_WORKSPACE
+          bash .github/release/release.sh
