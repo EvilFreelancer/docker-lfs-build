@@ -5,6 +5,9 @@ services:
     restart: unless-stopped
     privileged: true
     image: evilfreelancer/docker-lfs-build
+    # Empty or unset keeps root locked in the generated system.
+    environment:
+      LFS_ROOT_PASSWORD: "${LFS_ROOT_PASSWORD:-}"
     volumes:
       - ./book:/lfs/book
       - ./image:/lfs/image

@@ -25,15 +25,50 @@ Start container:
 
     docker-compose up -d
 
-Then login to LFS container:
+Start building directly, preserving the configured container environment:
 
-    docker-compose exec lfs bash
-
-Start building:
-
-    /book/book.sh
+    docker-compose exec lfs /book/book.sh
 
 Result of building will be in `dist` folder.
+
+### Root password in the generated system
+
+The builder locks root unless you supply a nonempty `LFS_ROOT_PASSWORD` at
+runtime. The default empty value in `docker-compose.yml.dist` lets the container
+start without a password, but the resulting ISO will not allow root password
+login, including through `sulogin`.
+
+Before starting the container, read and export the password in your host's Bash
+shell so it does not appear in shell history:
+
+```bash
+read -r -s -p 'LFS root password > ' LFS_ROOT_PASSWORD
+printf '\n'
+export LFS_ROOT_PASSWORD
+docker-compose up -d
+unset LFS_ROOT_PASSWORD
+docker-compose exec lfs /book/book.sh
+```
+
+Compose passes this value through the service's `environment` setting. Recreate
+an existing container after changing the value. For a one-off build in a running
+container, read and export it as above, then use
+`docker-compose exec -e LFS_ROOT_PASSWORD lfs /book/book.sh` and unset it afterward.
+Run the builder directly as shown. The interactive login shell clears the
+environment in `.bashrc`.
+
+The password must not contain a colon, carriage return or newline. The builder
+uses the installed Shadow tools to create shadowed passwords and set root's
+password. It disables tracing while handling the value and sends it to the
+chroot over standard input. Missing or empty input leaves root locked and prints
+a warning. Invalid input or a password configuration failure stops the build
+before image generation.
+
+Do not put the password in the Dockerfile or commit it to Compose files. Docker
+stores container environment variables in its metadata, which Docker
+administrators can inspect. Treat the generated images as sensitive because
+they contain the root password hash. When using `docker run`, pass an exported
+value with `-e LFS_ROOT_PASSWORD`.
 
 ### Download from Docker Hub
 
