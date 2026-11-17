@@ -1,6 +1,18 @@
 #!/bin/bash -x
 
+set -e
+set -o pipefail
+
 echo ">>> Chapter 7"
+
+# Keep the password out of xtrace, process arguments and child environments.
+set +x
+export -n LFS_ROOT_PASSWORD
+printf '%s' "${LFS_ROOT_PASSWORD-}" | chroot "$LFS" /usr/bin/env -i \
+  PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+  /bin/bash /book/chapter-7/7.x-configure-root-password.sh
+unset LFS_ROOT_PASSWORD
+set -x
 
 # enter and continue in chroot environment with usr
 chroot "$LFS" /usr/bin/env -i                   \
